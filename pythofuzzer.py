@@ -1,7 +1,15 @@
 import requests ,sys
 
-res=requests.get("https://api.airlines.bugbountymasterclass.com/")
-print(res)
-data=res.json()
-print(data)
-
+url="https://nidhin.vercel.app/fuzz"
+file=open("wordllists.txt","r")
+r=requests.get(url)
+with open("wordllists.txt","r") as words:
+    wordlists=words.read().splitlines()
+for  i in wordlists:
+    test_url=url.replace("fuzz",i)
+    r=requests.get(test_url)
+    if r.status_code==200:
+        print("valid")
+        print(i)
+    else:
+        print("not valid")
