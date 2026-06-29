@@ -1,6 +1,6 @@
 import requests
 
-url="https://nidhin.vercel.app/fuzz"
+url="https://nidhin.vercel.app/fuzz"#test url
 file=open("wordllists.txt","r")
 r=requests.get(url)
 with open("wordllists.txt","r") as words:
